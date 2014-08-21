@@ -31,22 +31,19 @@ Crafty.c('Actor', {
 
 Crafty.c('Tree', {
   init: function() {
-    this.requires('Actor, Color, Solid')
-      .color('rgb(20, 125, 40)');
+    this.requires('Actor, Solid, spr_tree');
   }
 });
 
 Crafty.c('Bush', {
   init: function() {
-    this.requires('Actor, Color, Solid')
-      .color('rgb(20, 185, 40)');
+    this.requires('Actor, Solid, spr_bush');
   }
 });
 
 Crafty.c('Village', {
   init: function() {
-    this.requires('Actor, Color')
-      .color('rgb(170, 125, 40)');
+    this.requires('Actor, spr_village');
   },
 
   collect: function() {
@@ -57,9 +54,8 @@ Crafty.c('Village', {
 
 Crafty.c('PlayerCharacter', {
   init: function() {
-    this.requires('Actor, Fourway, Color, Collision')
+    this.requires('Actor, Fourway, Collision, spr_player')
       .fourway(4)
-      .color('rgb(20, 75, 40)')
       .stopOnSolids()
       .onHit('Village', this.visitVillage);
   },

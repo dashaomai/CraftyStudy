@@ -51,3 +51,21 @@ Crafty.scene('Victory', function() {
 }, function() {
   this.unbind('KeyDown', this.restart_game);
 });
+
+Crafty.scene('Loading', function() {
+  Crafty.e('2D, DOM, Text')
+    .text('Loading...')
+    .attr({ x: 0, y: Game.height() / 2 - 24, w: Game.width() })
+    .css($text_css);
+
+  Crafty.load(['assets/16x16_forest_1.gif'], function() {
+    Crafty.sprite(16, 'assets/16x16_forest_1.gif', {
+      spr_tree:    [0, 0],
+      spr_bush:    [1, 0],
+      spr_village: [0, 1],
+      spr_player:  [1, 1]
+    });
+
+    Crafty.scene('Game');
+  });
+});
