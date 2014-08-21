@@ -58,7 +58,13 @@ Crafty.scene('Loading', function() {
     .attr({ x: 0, y: Game.height() / 2 - 24, w: Game.width() })
     .css($text_css);
 
-  Crafty.load(['assets/16x16_forest_1.gif', 'assets/hunter.png'], function() {
+  Crafty.load([
+    'assets/16x16_forest_1.gif',
+    'assets/hunter.png',
+    'assets/door_knock_3x.mp3',
+    'assets/door_knock_3x.ogg',
+    'assets/door_knock_3x.aac'
+  ], function() {
     Crafty.sprite(16, 'assets/16x16_forest_1.gif', {
       spr_tree:    [0, 0],
       spr_bush:    [1, 0],
@@ -68,6 +74,14 @@ Crafty.scene('Loading', function() {
     Crafty.sprite(16, 'assets/hunter.png', {
       spr_player: [0, 2]
     }, 0, 2);
+
+    Crafty.audio.add({
+      knock: [
+        'assets/door_knock_3x.mp3',
+        'assets/door_knock_3x.ogg',
+        'assets/door_knock_3x.aac'
+      ]
+    });
 
     Crafty.scene('Game');
   });
