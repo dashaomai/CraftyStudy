@@ -42,8 +42,9 @@ Crafty.scene('Game', function() {
 
 Crafty.scene('Victory', function() {
   Crafty.e('2D, DOM, Text')
-    .attr({x: 0, y: 0})
-    .text('Victory!');
+    .attr({x: 0, y: Game.height() / 2 - 24, w: Game.width()})
+    .text('Victory!')
+    .textFont($text_css);
 
   this.restart_game = this.bind('KeyDown', function() {
     Crafty.scene('Game');
@@ -56,7 +57,7 @@ Crafty.scene('Loading', function() {
   Crafty.e('2D, DOM, Text')
     .text('Loading...')
     .attr({ x: 0, y: Game.height() / 2 - 24, w: Game.width() })
-    .css($text_css);
+    .textFont($text_css);
 
   Crafty.load([
     'assets/16x16_forest_1.gif',

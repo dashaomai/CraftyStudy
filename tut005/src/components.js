@@ -75,7 +75,7 @@ Crafty.c('PlayerCharacter', {
       } else if (data.y < 0) {
         this.animate('PlayerMovingUp', animation_speed, -1);
       } else {
-        this.stop();
+        this.pauseAnimation();
       }
     })
   },
